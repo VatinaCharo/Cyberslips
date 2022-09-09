@@ -18,6 +18,7 @@ def get_slips(raw_text: str, length: int) -> list[list[str]]:
         c = chars[i]
         slips[i % length] = slips[i % length] + [c]
     max_length = len(slips[0])
+
     for i in range(length):
         while len(slips[i]) < max_length:
             slips[i] = slips[i] + [block]
@@ -33,7 +34,11 @@ def show_slips(slips: list[list[str]]):
         print()
 
 
+# 填充符
 block = "□"
+# 字体兼容版的填充符，用于解决某些字体下方框小一号的问题
+# block = "口"
+
 # 标点符号替换表
 replace_tag_map = {
     ",": block,
@@ -47,6 +52,9 @@ replace_tag_map = {
     "？": block
 }
 # 文本
+# text = """
+# 那琥珀丹凤瞳，美中镶尊，柔中带钢，一瞥乍有千年帝君之庄威，二督又似旭日柔阳之红颜，三察却归若尘世闲游之过客。
+# """
 text = """
 元丰六年十月十二日夜，解衣欲睡，月色入户，欣然起行。
 念无与为乐者，遂至承天寺寻张怀民。
